@@ -1,0 +1,6 @@
+trialData <- read.csv2("household_power_consumption.txt")
+trialData$date_normed <- as.Date(trialData$Date, format="%d/%m/%Y")
+trialSub <- subset(trialData, date_normed >= "2007-02-01" & date_normed <= "2007-02-02")
+png(file = "plot1.png")
+hist(as.numeric(as.character(trialSub$Global_active_power)), col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+dev.off()
